@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "igbokwe-test",
+  "private_key_id": "3beba587b4056acfd0890c6b9e041366ff043226",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJJ89+QeNxkmVM\nNbl553ZKg8vhf8bC/Tr88+1WbruaTNeBfpBA57eOVeOcnkHRE4XTO2zWAvIQbyOP\nTAQSgSVyIbd8r9b6YXF7ilMFxLLflaJGWAQC/oUlJHZHESPOajP8MXwUD9bX3vZm\neTgXPMAHn9un9N+HMzhdNRdl0LlYOBWVKXV8ytWxbl5uCYoH4o5SqWYm6ca3AON7\ncEdp40wqG6zIK84tiS6KqN/oLRlBfVNJzcFqQCsAZyqWATv3vM8BaaCAWGT76JDM\nfgsNWqQYy23DvwbTjDxDRs6u70UB+Ga9JxPZlN5jG2c9ph3itcjwcosdFoY5FJOp\nQImRqtsjAgMBAAECggEABTu06Tr7mNPPMNlg9uvvpuag4j/5ws7lvvj1nr8IwG3p\nWWQaiqW8n8ZaQpPXcIIKhEFShorTE1xg13SJ0pVrjPmVlXfZpu/sDOO/XzIL2UdC\nToQxroZCnoHBVf37KX6X1aLP8JGs7DbPwEC9FdWtxUUCaO809YZ+m+YqsqpoeAQJ\ntK98nEurMI85+3fPxGkoUnkNJFPGGKfy2pWD1pUbFXwTR4R2yUbm89uHTpNIlskJ\n19Bi145bmVIkq/+v5lSrHTvOeRjswhNWK76Hy0/QIhCwqAJrWxeExAbs9A8Bq/VP\njvsuH4WCoaTIrND7K5eZ8Y891eJh1tGnH/m3SlY2KQKBgQDmDmQhcjIesMTf7+tw\nYE5+X9UKA2R5W94cG8RnobMnR4Ihb9c7mQ7h3zjxmQaD/N4hKgD4OhCsDnOKyPDN\nMNR9dlQVRKWmN7JQQPpbXWvHJ7PNwUEVRnDpCG1jbRtwGk8D3yTAT8z+bXzOlZCh\nRkrea70kus7AVjFJKyHrLyCH7QKBgQDf1xICPoFeiC6Xw126IMIMGalTX5eOdID+\njDWlNc2yr2A5RqbOrXLoaGZL/C5dtBYq8Hgno55H47n4EOBmqpg5O/gCUFvU/PQA\nHrPz4KO5EzO+iNyhmK/XbVhLuo0nMMkjwwWdJ6PREmKj09QGXAn9toeLwGO95feR\nt8y/taVtTwKBgCjJVmFDoLUmO9FD9ObYfDIVhWygC1kku20aUyjYVy3YlK6e6HbN\nfQD4lVzn92rBExSoIMHhcYE/kqaBV4fZZ2LS7rdSk1ezui5WRsyZ9Hi7hjotT/+Y\nnH4EG3isKFgooeea0SYzP7G/8YeipqChGLb0PPVdFTiuT1CckAflNAxFAoGANSbS\nxemlupbHyY3AkdP5f/oP9RY73L3Za5hLnMFb6NQwGymlrmoNYRZ5RA3LzMBYizWy\nsmbtzNBMdpU7U+WqY9zTlWkThU3TervPq1dqSSZAITxKd6zUBGmYj9LqdaXl/THw\nAVNKWPjup0xDiocMcEyJfyveA1e6I8XrPpKZh40CgYEAhxXOuUMYTbZze07t9na3\nKLvaxP1XFC3z6Gwn/Fmgyn3HTVOgUXqLUooRMYnI19GVSA7leklmi19mVm0+8zod\nehy0sZ+kFsHcn35wS73Hzj/VrGo0LJ3odRuyCCIzdnwixw5gOL9LTEtx5JMrzN9u\naJWl65VsH6Xdf1bN+0hqOSo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "terraform@igbokwe-test.iam.gserviceaccount.com",
+  "client_id": "106331786447647143638",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform%40igbokwe-test.iam.gserviceaccount.com"
+}
