@@ -1,0 +1,61 @@
+resources:
+  - name: 'rapid-deploy'
+    action: 'gcp-types/cloudbuild-v1:cloudbuild.projects.builds.create'
+    properties:
+      projectId: 'igbokwe-test'
+      source:
+        repoSource:
+          projectId: 'igbokwe-test'
+          repoName: 'github_igbokwe_rapiddeploy'
+          branchName: 'master'
+      substitutions:
+        _PROJECT_ID: {{properties["project"]}}
+        _REGION: {{properties["region"]}}
+        _ZONE: {{properties["zone"]}}
+        _IDX_CLUSTER_SIZE: {{properties["splunk_idx_cluster_size"]}}
+        _SH_CLUSTER_SIZE: {{properties["splunk_sh_cluster_size"]}}
+        _ADMIN_PASSWORD: {{properties["splunk_admin_password"]}}
+        _CLUSTER_SECRET: {{properties["splunk_cluster_secret"]}}
+        _IDX_SECRET: {{properties["splunk_indexer_discovery_secret"]}}
+        _NETWORK: {{properties["splunk_network"]}}
+        _SUBNET: {{properties["splunk_subnet"]}}
+        _CIDR: {{properties["splunk_subnet_cidr"]}}
+        _PROJECT_ID: {{properties["project"]}}
+      steps:
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['init', '-input=false']
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['workspace', 'new', '{{env["deployment"]}}']
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['plan', '-input=false', '-out=tfplan','-var project={{properties["project"]}}', '-var region={{properties["region"]}}','-var zone={{properties["zone"]}}','-var splunk_idx_cluster_size={{properties["splunk_idx_cluster_size"]}}','-var splunk_sh_cluster_size={{properties["splunk_sh_cluster_size"]}}','-var splunk_admin_password={properties["splunk_admin_password"]}}','-var splunk_cluster_secret={{properties["splunk_cluster_secret"]}}','-var splunk_indexer_discovery_secret={{properties["splunk_indexer_discovery_secret"]}}','-var network={{properties["splunk_network"]}}','-var splunk_subnet={{properties["splunk_subnet"]}}','-var splunk_subnet_cidr={{properties["splunk_subnet_cidr"]}}','-var create_network={{properties["create_network"]}}']
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['apply', '-input=false', '-auto-approve',}', '-var region={{properties["region"]}}','-var zone={{properties["zone"]}}','-var splunk_idx_cluster_size={{properties["splunk_idx_cluster_size"]}}','-var splunk_sh_cluster_size={{properties["splunk_sh_cluster_size"]}}','-var splunk_admin_password={properties["splunk_admin_password"]}}','-var splunk_cluster_secret={{properties["splunk_cluster_secret"]}}','-var splunk_indexer_discovery_secret={{properties["splunk_indexer_discovery_secret"]}}','-var network={{properties["splunk_network"]}}','-var splunk_subnet={{properties["splunk_subnet"]}}','-var splunk_subnet_cidr={{properties["splunk_subnet_cidr"]}}','-var create_network={{properties["create_network"]}}']
+      artifacts:
+        objects:
+            location: 'gs://rapiddeploy/terraform/cloudbuild/apply/{{ env["deployment"] }}'
+            paths: ['tfplan']
+    metadata:
+      runtimePolicy:
+        - CREATE
+  - name: 'destroy-terraform'
+    action: 'igbokwe-test/cloudbuild:cloudbuild.projects.builds.create'
+    properties:
+      projectId: 'igbokwe-test'
+      source:
+        repoSource:
+          projectId: 'igbokwe-test'
+          repoName: 'rapiddeploy'
+          branchName: 'master'
+      substitutions:
+        _PROJECT_ID: {{env["project"]}}
+      steps:
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['init', '-input=false']
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['workspace', 'select', '{{ env["deployment"] }}']
+        - name: gcr.io/${_PROJECT_ID}/terraform
+          args: ['destroy', '-input=false', '-auto-approve']
+    metadata:
+      runtimePolicy:
+        - DELETE
+

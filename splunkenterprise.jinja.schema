@@ -1,0 +1,70 @@
+info:
+  author: Google Inc.
+  description: Deploy Splunk Enterprise
+
+imports:
+    - path: splunkenterprise.jinja
+
+required:
+  - project
+  - region
+  - zone
+  - splunk_idx_cluster_size
+  - splunk_sh_cluster_size
+  - splunk_admin_password
+  - splunk_cluster_secret
+  - splunk_indexer_discovery_secret
+  - splunk_network
+  - splunk_subnet 
+  - splunk_subnet_cidr 
+
+properties:
+  machinetype:
+    title: Machine type
+    type: string
+    enum:
+      - db-n1-standard-1
+      - db-n1-standard-2
+      - db-n1-standard-4
+      - db-n1-highmem-2
+      - db-n1-highmem-4
+      - db-n1-highmem-8
+      - db-f1-micro
+  project:
+   title: Project
+   type: string
+   description: GCP Project
+  region:
+   title: Region
+   type: string
+  zone 
+   title: Zone
+   type: string
+  splunk_idx_cluster_size
+   title: Index Cluster Size
+   type: string
+  splunk_sh_cluster_size
+   title: Search Head  Cluster Size
+   type: string
+  splunk_admin_password
+   title: Admin Password
+   type: string
+  splunk_cluster_secret
+   title: Cluster Secret
+   type: string
+  splunk_indexer_discovery_secret
+   title: Indexer Discovery Secret
+   type: string
+  splunk_network
+   title: Network
+   type: string
+  splunk_subnet
+   title: Subnet
+   type: string
+  splunk_subnet_cidr
+   title: CIDR Block
+   type: string
+  create_network
+   title: Create Network
+   type: string
+   default: "true"
